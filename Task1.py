@@ -16,6 +16,7 @@ class StockIn:
 
     def insert_data(self):
         self.__conn.autocommit = True
+        self.__cur.execute('drop table if exists stockIn;')
         self.__task1_create_function()
         self.__create_table()
         with open('task/task1_in_stoke_test_data_publish.csv') as task1:
@@ -91,7 +92,6 @@ $$ language plpgsql;''')
         self.__conn.commit()
 
     def __create_table(self):
-        self.__cur.execute('drop table if exists stockIn;')
         self.__cur.execute('''create table if not exists stockIn
 (
     id             integer primary key,

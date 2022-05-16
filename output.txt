@@ -1,61 +1,19 @@
 Q6
 Director          8   
-Contracts Manager 160 
 Salesman          640 
-Supply Staff      192 
-Q6
-Director          8   
 Contracts Manager 160 
-Salesman          640 
 Supply Staff      192 
-Q6
-Director          8   
-Contracts Manager 160 
-Salesman          640 
-Supply Staff      192 
-Q6
-Director          8   
-Contracts Manager 160 
-Salesman          640 
-Supply Staff      192 
-Q6
-Director          8   
-Contracts Manager 160 
-Salesman          640 
-Supply Staff      192 
+Q7	84
+Q8	178
+Q9	53
+Q10
+PrecisionAirConditionerG9 863 
 Q11
-America                                      446.8 
-Asia                                         494.0 
-Eastern China                                593.7 
-Europe                                       492.4 
-Hong Kong, Macao and Taiwan regions of China 422.0 
-Northern China                               520.1 
-Southern China                               428.4 
-Southwestern China                           472.3 
-Q11
-America                                      446.8 
-Asia                                         494.0 
-Eastern China                                593.7 
-Europe                                       492.4 
-Hong Kong, Macao and Taiwan regions of China 422.0 
-Northern China                               520.1 
-Southern China                               428.4 
-Southwestern China                           472.3 
-Q11
-America                                      446.8 
-Asia                                         494.0 
-Eastern China                                593.7 
-Europe                                       492.4 
-Hong Kong, Macao and Taiwan regions of China 422.0 
-Northern China                               520.1 
-Southern China                               428.4 
-Southwestern China                           472.3 
-Q11
-America                                      446.8 
-Asia                                         494.0 
-Eastern China                                593.7 
-Europe                                       492.4 
-Hong Kong, Macao and Taiwan regions of China 422.0 
-Northern China                               520.1 
-Southern China                               428.4 
-Southwestern China                           472.3 
+America                                      448.3 
+Asia                                         494.5 
+Eastern China                                594.2 
+Europe                                       493.4 
+Hong Kong, Macao and Taiwan regions of China 423.5 
+Northern China                               521.9 
+Southern China                               429.0 
+Southwestern China                           473.2 

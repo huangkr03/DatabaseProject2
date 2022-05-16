@@ -9,6 +9,7 @@ class PlaceOrder:
 
     def insert_data(self):
         self.__conn.autocommit = True
+        self.__cur.execute('drop table if exists orders, contracts;')
         self.__task2_create_function()
         self.__create_table()
         with open('task/task2_test_data_publish.csv') as task2:
@@ -100,7 +101,6 @@ $$ language plpgsql;''')
         self.__conn.commit()
 
     def __create_table(self):
-        self.__cur.execute('drop table if exists orders, contracts;')
         self.__cur.execute('''create table if not exists orders
 (
     id                     serial primary key,

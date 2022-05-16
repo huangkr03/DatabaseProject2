@@ -34,7 +34,7 @@ from a;''')
     def getFavoriteProductModel(self):
         self.__cur.execute('''with a as (select model, quantity, current_quantity, max(quantity - current_quantity) over () max
            from stock)
-select model model_name, max quantity
+select model model_name, max as quantity
 from a
 where quantity - current_quantity = max;''')
         return self.__cur.fetchall()

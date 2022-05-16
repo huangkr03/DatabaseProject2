@@ -1,3 +1,5 @@
+import sys
+
 import psycopg2 as pg
 from psycopg2.extensions import *
 from Task1 import StockIn
@@ -6,23 +8,26 @@ from Task3 import UpdateOrder
 from Task4 import DeleteOrder
 from Select import SelectItem
 
-
-conn: connection
-cur: cursor
+methods = {}
+connected = False
+output = open('output.txt', 'w')
 
 
 def connect_db():
+    global connected
     try:
         conn = pg.connect(database='project_2', user='postgres',
                           password='123456', host='localhost', port=5432)
+        connected = True
         conn.autocommit = False
-    except Exception as e:
-        raise e
-    else:
-        return conn, conn.cursor()
+        return conn
+    except Exception:
+        return None
 
 
-def create_tables(cur: cursor, conn: connection):
+def create_tables():
+    global conn
+    cur: cursor = conn.cursor()
     cur.execute('''create table if not exists center
 (
     id   integer primary key,
@@ -89,10 +94,24 @@ def create_tables(cur: cursor, conn: connection):
     foreign key (salesman_num) references staff (number),
     foreign key (contract_manager) references staff (number)
 );''')
+    cur.execute('''
+create table if not exists stock
+(
+    model            varchar not null,
+    center           varchar not null,
+    quantity         integer not null,
+    current_quantity integer not null,
+    primary key (model, center)
+);''')
+    cur.close()
     conn.commit()
 
 
-def import_data(cur: cursor, conn: connection):
+def import_data():
+    global conn
+    cur: cursor = conn.cursor()
+    drop_tables()
+    create_tables()
     center = open('center.csv')
     center.readline()
     enterprise = open('enterprise.csv')
@@ -109,36 +128,56 @@ def import_data(cur: cursor, conn: connection):
     enterprise.close()
     product.close()
     staff.close()
+    cur.close()
+    conn.commit()
+
+    t1 = StockIn(conn)
+    t1.insert_data()
+    t2 = PlaceOrder(conn)
+    t2.insert_data()
+    t3 = UpdateOrder(conn)
+    t3.update_data()
+    t4 = DeleteOrder(conn)
+    t4.delete_data()
+
+
+def drop_tables():
+    global conn
+    cur: cursor = conn.cursor()
+    cur.execute('drop table if exists product, enterprise, center, staff, stockIn, orders, contracts, stock;')
+    cur.close()
     conn.commit()
 
 
-def drop_tables(cur: cursor, conn: connection):
-    cur.execute('drop table if exists product, enterprise, center, staff, stockIn, orders, contracts;')
-    conn.commit()
+def get_format(result: list):
+    m = [(max(len(str(a[i])) for a in result) + 1) for i in range(len(result[0]))]
+    s = [('%-' + str(i) + 's') for i in m]
+    out = ''.join(s)
+    return out
 
 
 if __name__ == '__main__':
-    conn, cur = connect_db()
+    conn: connection
+    conn = connect_db()
+    if conn is None:
+        print('connection failed')
+        sys.exit(1)
     methods = {}
 
-    drop_tables(cur, conn)
-    create_tables(cur, conn)
-    import_data(cur, conn)
+    drop_tables()
+    create_tables()
+    import_data()
 
-    print(1)
-    t1 = StockIn(cur, conn)
-    t1.insert_data()
-    print(2)
-    t2 = PlaceOrder(cur, conn)
-    t2.insert_data()
-    print(3)
-    t3 = UpdateOrder(cur, conn)
-    t3.update_data()
-    print(4)
-    t4 = DeleteOrder(cur, conn)
-    t4.delete_data()
+    # t1 = StockIn(conn)
+    # t1.insert_data()
+    # t2 = PlaceOrder(conn)
+    # t2.insert_data()
+    # t3 = UpdateOrder(conn)
+    # t3.update_data()
+    # t4 = DeleteOrder(conn)
+    # t4.delete_data()
 
-    select = SelectItem(cur, conn)
+    select = SelectItem(conn)
     methods.setdefault('Q6', select.getAllStaffCount)
     methods.setdefault('Q7', select.getContractCount)
     methods.setdefault('Q8', select.getOrderCount)
@@ -149,48 +188,56 @@ if __name__ == '__main__':
     methods.setdefault('Q13', select.getContractInfo)
 
     output = open('output.txt', 'w')
-    while (True):
-        method = input('Please Input Method: ')
-        if method.lower() == 'exit':
-            break
-        if method not in methods.keys():
-            print('Method is not correct! Please input Q6 ~ Q13')
-            continue
-        if method == 'Q12':
-            product_num = input('Input Product_num: ')
-            result = methods.get(method)(product_num)
-            output.write(method + '\n')
-            output.write('supply_center\tproduct_number\tproduct_model\tpurchase_price\tquantity\n')
-            for i in result:
-                i = [str(k) for k in i]
-                output.write('\t'.join(i))
-                output.write('\n')
-        elif method == 'Q13':
-            contract_num = input('Input Contract_num: ')
-            result, result1 = methods.get(method)(contract_num)
-            if not result:
-                result = ['None', 'None', 'None', 'None']
-            output.write(method + '\n')
-            output.write('number: ' + str(result[0]) + '\n')
-            output.write('manager: ' + str(result[1]) + '\n')
-            output.write('enterprise: ' + str(result[2]) + '\n')
-            output.write('supply_center: ' + str(result[3]) + '\n')
-            output.write(
-                'product_model\tsalesman\tquantity\tunit_price\testimate_delivery_date\tlodgement_date')
-            for i in result1:
-                i = [str(k) for k in i]
-                output.write('\t'.join(i))
-                output.write('\n')
+    commands = ['Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11']
+
+    product_nums = input().split(',')
+    contract_nums = input().split(',')
+    for command in commands:
+        output_str = ''
+        result = methods.get(command)()
+        if command in ['Q7', 'Q8', 'Q9']:
+            output_str += (command + '\t')
+            output_str += str(result[0][0]) + '\n'
         else:
-            result = methods.get(method)()
-            if method in ['Q7', 'Q8', 'Q9']:
-                output.write(method + '\t')
-            else:
-                output.write(method + '\n')
+            out = get_format(result)
+            output_str += (command + '\n')
             for i in result:
                 i = [str(k) for k in i]
-                output.write('\t'.join(i))
-                output.write('\n')
+                output_str += (out % tuple(i))
+                output_str += '\n'
+        print(output_str, end='')
+        output.write(output_str)
+    # Q12
+    for product_num in product_nums:
+        output_str = ''
+        result = methods.get('Q12')(product_num)
+        output_str += ('Q12' + '\n')
+        result.insert(0, ['supply_center', 'product_number', 'product_model', 'purchase_price', 'quantity'])
+        out = get_format(result)
+        for i in result:
+            i = [str(k) for k in i]
+            output_str += (out % tuple(i))
+            output_str += '\n'
+        print(output_str, end='')
+    # Q13
+    for contract_num in contract_nums:
+        output_str = ''
+        result, result1 = methods.get('Q13')(contract_num)
+        if not result:
+            result = ['None', 'None', 'None', 'None']
+        output_str += ('Q13' + '\n')
+        output_str += ('number: ' + str(result[0]) + '\n')
+        output_str += ('manager: ' + str(result[1]) + '\n')
+        output_str += ('enterprise: ' + str(result[2]) + '\n')
+        output_str += ('supply_center: ' + str(result[3]) + '\n')
+        result1.insert(0, ['product_model', 'salesman', 'quantity', 'unit_price', 'estimate_delivery_date',
+                           'lodgement_date'])
+        out = get_format(result1)
+        for i in result1:
+            i = [str(k) for k in i]
+            output_str += (out % tuple(i))
+            output_str += '\n'
+        print(output_str, end='')
     output.flush()
     output.close()
     conn.close()
