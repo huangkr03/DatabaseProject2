@@ -1,3 +1,5 @@
+Q12
+supply_center product_number product_model purchase_price quantity 
 Q6
 Director          8   
 Salesman          640 
@@ -17,3 +19,10 @@ Hong Kong, Macao and Taiwan regions of China 423.5
 Northern China                               521.9 
 Southern China                               429.0 
 Southwestern China                           473.2 
+Q13
+number: CSE0000112
+manager: Bob Lewis
+enterprise: Bilibili
+supply_center: Eastern China
+product_model      salesman       quantity unit_price estimate_delivery_date lodgement_date 
+UpsPowerShredderT7 Lucinda Harris 1        270        2022-01-17             2022-01-17     

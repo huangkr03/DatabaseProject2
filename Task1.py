@@ -1,43 +1,39 @@
-from psycopg2.extensions import cursor, connection
 import csv
 
 
 class StockIn:
-    def __init__(self, conn: connection):
-        self.__cur: cursor = conn.cursor()
-        self.__conn = conn
-
-    def __check_1(self, center_name: str, salesman_id: str):
-        self.__cur.execute("select task1_1('%s', '%s')" % center_name, salesman_id)
-        b1 = self.__cur.fetchone()[0]
-        self.__cur.execute("select task1_2('%s')" % salesman_id)
-        b2 = self.__cur.fetchone()[0]
-        return b1 & b2
+    def __init__(self, pool):
+        self.__pool = pool
 
     def insert_data(self):
-        self.__conn.autocommit = True
-        self.__cur.execute('drop table if exists stockIn;')
-        self.__task1_create_function()
-        self.__create_table()
+        conn = self.__pool.get_conn()
+        cur = conn.cursor()
+        self.__task1_create_function(conn)
+        self.__create_table(conn)
+        # conn.autocommit = True
         with open('task/task1_in_stoke_test_data_publish.csv') as task1:
             reader = csv.reader(task1)
             reader.__next__()
             for line in reader:
                 line = str(line).lstrip('[').rstrip(']')
                 try:
-                    self.__cur.execute('insert into stockIn values (' + line + ')')
+                    cur.execute('insert into stockIn values (' + line + ')')
+                    conn.commit()
                 except Exception as e:
+                    conn.rollback()
                     # print(e)
                     continue
-        self.__conn.autocommit = False
-        # self.__cur.execute('alter table stockIn add column current_quantity integer;')
-        # self.__cur.execute('update stockIn set current_quantity = quantity;')
-        # self.__conn.commit()
+        # conn.autocommit = False
+        # conn.commit()
+        cur.close()
+        conn.close()
 
-    def __task1_create_function(self):
-        self.__cur.execute('''drop function if exists task1_1;''')
-        self.__cur.execute('''drop function if exists task1_2;''')
-        self.__cur.execute('''create function task1_1(center_name varchar, salesman_id char(8), product_model varchar, qt integer)
+    def __task1_create_function(self, conn):
+        cur = conn.cursor()
+        cur.execute('drop table if exists stockIn;')
+        cur.execute('drop function if exists task1_1;')
+        cur.execute('drop function if exists task1_2;')
+        cur.execute('''create function task1_1(center_name varchar, salesman_id char(8), product_model varchar, qt integer)
     returns bool as
 $$
 declare
@@ -74,7 +70,7 @@ begin
     end if;
 end;
 $$ language plpgsql;''')
-        self.__cur.execute('''create function task1_2(salesman_num char(8))
+        cur.execute('''create function task1_2(salesman_num char(8))
         returns bool as
     $$
     declare
@@ -89,10 +85,12 @@ $$ language plpgsql;''')
         end if;
     end;
     $$ language plpgsql;''')
-        self.__conn.commit()
+        conn.commit()
+        cur.close()
 
-    def __create_table(self):
-        self.__cur.execute('''create table if not exists stockIn
+    def __create_table(self, conn):
+        cur = conn.cursor()
+        cur.execute('''create table if not exists stockIn
 (
     id             integer primary key,
     supply_center  varchar not null,
@@ -107,4 +105,5 @@ $$ language plpgsql;''')
     check ( task1_2(supply_staff) ),
     check ( task1_1(supply_center, supply_staff, product_model, quantity) )
 );''')
-        self.__conn.commit()
+        conn.commit()
+        cur.close()

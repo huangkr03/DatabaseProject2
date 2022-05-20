@@ -1,27 +1,28 @@
-from psycopg2.extensions import cursor, connection
 import csv
 
 
 class PlaceOrder:
-    def __init__(self, conn: connection):
-        self.__cur: cursor = conn.cursor()
-        self.__conn = conn
+    def __init__(self, pool):
+        self.__pool = pool
 
     def insert_data(self):
-        self.__conn.autocommit = True
-        self.__cur.execute('drop table if exists orders, contracts;')
-        self.__task2_create_function()
-        self.__create_table()
+        conn = self.__pool.get_conn()
+        cur = conn.cursor()
+        self.__task2_create_function(conn)
+        self.__create_table(conn)
+        # conn.autocommit = True
         with open('task/task2_test_data_publish.csv') as task2:
             reader = csv.reader(task2)
             reader.__next__()
             for line in reader:
                 try:
-                    self.__cur.execute(
+                    cur.execute(
                         "insert into contracts values ('" + line[0] + "','" + line[4] + "','" + line[1] + "',0)")
+                    conn.commit()
                 except Exception as e:
+                    conn.rollback()
                     # print(line)
-                    # print(e)
+                    print(e)
                     continue
         with open('task/task2_test_data_publish.csv') as task2:
             reader = csv.reader(task2)
@@ -30,21 +31,28 @@ class PlaceOrder:
                 contract_num = line[0]
                 line = str(line).lstrip('[').rstrip(']')
                 try:
-                    self.__cur.execute(
-                        'insert into orders (contract_num,enterprise,product_model,quantity,contract_manager,'
+                    cur.execute(
+                        'insert into orders (contract_num,enterprise,product_model,quantity,contract_manager,' +
                         'contract_date,estimate_delivery_date,lodgement_date,salesman_num,contract_type) values ('
                         + line + ')')
-                    self.__cur.execute("update contracts set tot_order = tot_order + 1 where contract_num = '%s'" % contract_num)
+                    cur.execute("update contracts set tot_order = tot_order + 1 " +
+                                "where contract_num = '%s'" % contract_num)
+                    conn.commit()
                 except Exception as e:
+                    conn.rollback()
                     # print(line)
-                    # print(e)
+                    print(e)
                     continue
-        self.__conn.autocommit = False
+        # conn.autocommit = False
+        cur.close()
+        conn.close()
 
-    def __task2_create_function(self):
-        self.__cur.execute('''drop function if exists task2_1;''')
-        self.__cur.execute('''drop function if exists task2_2;''')
-        self.__cur.execute('''create function task2_1(qt integer, prod_model varchar, enp_name varchar)
+    def __task2_create_function(self, conn):
+        cur = conn.cursor()
+        cur.execute('drop table if exists orders, contracts;')
+        cur.execute('''drop function if exists task2_1;''')
+        cur.execute('''drop function if exists task2_2;''')
+        cur.execute('''create function task2_1(qt integer, prod_model varchar, enp_name varchar)
     returns bool as
 $$
 declare
@@ -79,7 +87,7 @@ begin
     end if;
 end;
 $$ language plpgsql;''')
-        self.__cur.execute('''create function task2_2(salesman_num char(8))
+        cur.execute('''create function task2_2(salesman_num char(8))
         returns bool as
     $$
     declare
@@ -98,10 +106,12 @@ $$ language plpgsql;''')
         end if;
     end;
     $$ language plpgsql;''')
-        self.__conn.commit()
+        conn.commit()
+        cur.close()
 
-    def __create_table(self):
-        self.__cur.execute('''create table if not exists orders
+    def __create_table(self, conn):
+        cur = conn.cursor()
+        cur.execute('''create table if not exists orders
 (
     id                     serial primary key,
     contract_num           char(10) not null,
@@ -121,11 +131,12 @@ $$ language plpgsql;''')
     check (task2_2(salesman_num)),
     check (task2_1(quantity, product_model, enterprise))
 );''')
-        self.__cur.execute('''create table if not exists contracts
+        cur.execute('''create table if not exists contracts
 (
     contract_num char(10) primary key,
     manager varchar not null references staff (number),
     enterprise varchar not null references enterprise (name),
     tot_order    integer not null
 );''')
-        self.__conn.commit()
+        conn.commit()
+        cur.close()

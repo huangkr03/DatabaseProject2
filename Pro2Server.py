@@ -1,7 +1,7 @@
 import json
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from socketserver import ThreadingMixIn
-
+from dbutils.pooled_db import PooledDB
 import psycopg2 as pg
 from psycopg2.extensions import *
 
@@ -13,11 +13,46 @@ from Task4 import DeleteOrder
 
 host = ('127.0.0.1', 8765)
 
-conn: connection
 methods = {}
-connected = False
 output = open('output.txt', 'w')
 user: str
+
+
+class Pool: # DB Pool
+    def __init__(self):
+        self.pool = None
+        self.connected = False
+
+    def connect(self, form):
+        try:
+            self.pool = PooledDB(
+                creator=pg,
+                mincached=5,
+                maxcached=20,
+                blocking=True,
+                port=5432,
+                database=form.get('database'),
+                user=form.get('user'),
+                password=form.get('password'),
+                host=form.get('host'),
+                ping=0
+            )
+            conn = self.pool.connection()
+            self.connected = True
+        except Exception:
+            self.pool = None
+            self.connected = False
+
+    def get_conn(self) -> connection:
+        con = self.pool.connection()
+        self.status()
+        return con
+
+    def status(self):
+        print('There are', len(self.pool._idle_cache), 'connections')
+
+    def close(self):
+        self.pool.close()
 
 
 class Request(BaseHTTPRequestHandler):
@@ -52,7 +87,6 @@ class Request(BaseHTTPRequestHandler):
         self.wfile.write(homepage.encode())
 
     def do_GET(self):
-        global conn
         self.send_response(200)
         if self.path == '/':  # get page
             self.send_header("Content-type", "text/html")
@@ -61,7 +95,7 @@ class Request(BaseHTTPRequestHandler):
         elif self.path.endswith('html'):
             self.send_header("Content-type", "text/html")
             self.end_headers()
-            if not connected:
+            if not pool.connected:
                 self.return_page('client/login.html')
             else:
                 self.return_page('client' + self.path)
@@ -78,6 +112,7 @@ class Request(BaseHTTPRequestHandler):
             self.end_headers()
             self.return_ico('client' + self.path)
         if '?' in self.path:
+            conn = pool.get_conn()
             cur: cursor = conn.cursor()
             command = self.path.split('?')[1]
             if command == 'contract_num':
@@ -110,22 +145,21 @@ class Request(BaseHTTPRequestHandler):
                 self.send_response(200)
                 self.send_header("Content-type", "application/json")
                 self.end_headers()
-                # print(str(get_person_info()))
                 response = json.dumps(get_person_info()[0])
                 self.wfile.write(response.encode())
             cur.close()
             conn.commit()
+            conn.close()
 
     def do_POST(self):
         path = self.path
-        global conn
         if '?' not in path:
             data = self.rfile.read(int(self.headers['content-length']))  # get posted data
             form = data.decode()
             form = {i.split('=')[0]: i.split('=')[1] for i in form.split('&')}
-            if not connected:
+            if not pool.connected:
                 connect_db(form)
-            if not connected:
+            if not pool.connected:
                 self.send_response(200)
                 self.end_headers()
                 self.return_page('client/error.html')
@@ -135,6 +169,7 @@ class Request(BaseHTTPRequestHandler):
                 self.end_headers()
                 self.return_page('client/database.html')
         else:
+            conn = pool.get_conn()
             cur: cursor = conn.cursor()
             command = self.path.split('?')[1]
             if command.startswith('Q'):
@@ -229,6 +264,7 @@ class Request(BaseHTTPRequestHandler):
                     self.end_headers()
                     self.wfile.write(response.encode())
             cur.close()
+            conn.close()
 
 
 def get_format(result: list):
@@ -239,7 +275,7 @@ def get_format(result: list):
 
 
 def get_person_info():
-    global conn
+    conn = pool.get_conn()
     cur: cursor = conn.cursor()
     cur.execute("select * from pg_roles where rolname = '" + user + "';")
     columns = [col[0] for col in cur.description]
@@ -248,25 +284,20 @@ def get_person_info():
         for row in cur.fetchall()
     ]
     cur.close()
+    conn.close()
     return data
 
 
 def connect_db(form: dict):
-    global conn, connected, user
-    try:
-        if connected:
-            conn.close()
-        conn = pg.connect(database=form.get('database'), user=form.get('user'),
-                          password=form.get('password'), host=form.get('host'), port=5432)
-        connected = True
+    global user
+    if pool.connected:
+        pool.close()
+    pool.connect(form)
+    if pool.connected:
         user = form.get('user')
-        conn.autocommit = False
-    except Exception:
-        connected = False
 
 
-def create_tables():
-    global conn
+def create_tables(conn):
     cur: cursor = conn.cursor()
     cur.execute('''create table if not exists center
 (
@@ -348,10 +379,10 @@ create table if not exists stock
 
 
 def import_data():
-    global conn
+    conn = pool.get_conn()
     cur: cursor = conn.cursor()
-    drop_tables()
-    create_tables()
+    drop_tables(conn)
+    create_tables(conn)
     center = open('center.csv')
     center.readline()
     enterprise = open('enterprise.csv')
@@ -370,19 +401,19 @@ def import_data():
     staff.close()
     cur.close()
     conn.commit()
+    conn.close()
 
-    t1 = StockIn(conn)
+    t1 = StockIn(pool)
     t1.insert_data()
-    t2 = PlaceOrder(conn)
+    t2 = PlaceOrder(pool)
     t2.insert_data()
-    t3 = UpdateOrder(conn)
+    t3 = UpdateOrder(pool)
     t3.update_data()
-    t4 = DeleteOrder(conn)
+    t4 = DeleteOrder(pool)
     t4.delete_data()
 
 
-def drop_tables():
-    global conn
+def drop_tables(conn):
     cur: cursor = conn.cursor()
     cur.execute('drop table if exists product, enterprise, center, staff, stockIn, orders, contracts, stock;')
     cur.close()
@@ -390,10 +421,9 @@ def drop_tables():
 
 
 def init_database():
-    global conn, methods
-    cur: cursor = conn.cursor()
+    global methods
 
-    select = SelectItem(conn)
+    select = SelectItem(pool)
     methods.setdefault('Q6', select.getAllStaffCount)
     methods.setdefault('Q7', select.getContractCount)
     methods.setdefault('Q8', select.getOrderCount)
@@ -402,7 +432,6 @@ def init_database():
     methods.setdefault('Q11', select.getAvgStockByCenter)
     methods.setdefault('Q12', select.getProductByNumber)
     methods.setdefault('Q13', select.getContractInfo)
-    cur.close()
 
 
 class ThreadingHttpServer(ThreadingMixIn, HTTPServer):
@@ -410,6 +439,7 @@ class ThreadingHttpServer(ThreadingMixIn, HTTPServer):
 
 
 if __name__ == '__main__':
+    pool = Pool()
     myServer = ThreadingHttpServer(host, Request)
     print("Starting server, listen at: %s:%s" % host)
     try:

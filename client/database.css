@@ -92,7 +92,7 @@ html {
     border-radius: 20px;
     outline: none;
     font-size: 16px;
-    font-family: "Lucida Console", monospace;
+    font-family: "Consolas", monospace;
     font-weight: 500;
     color: white;
     background-image: linear-gradient(to bottom, #051937, #003b5f, #005e67, #007e49, #699605);

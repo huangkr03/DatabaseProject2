@@ -74,36 +74,38 @@
         }).then(response => {
             if (response.status === 200) {
                 window.alert('Import Succeed!')
-                fetch(url + '?product_num', {
-                    method: 'get'
-                }).then(response => response.text())
-                    .then(text => {
-                        products = text.split('&')
-                        fetch(url + '?contract_num', {
-                            method: 'get'
-                        }).then(response => response.text())
-                            .then(text => {
-                                contracts = text.split('&')
-                            });
-                    });
             }
+        }).then(() => {
+            fetch(url + '?product_num', {
+                method: 'get'
+            }).then(response => response.text())
+                .then(text => {
+                    products = text.split('&')
+                });
+            fetch(url + '?contract_num', {
+                method: 'get'
+            }).then(response => response.text())
+                .then(text => {
+                    contracts = text.split('&')
+                });
         })
     })
     $(".c-dropdown__item").on('click', function () {
-        $("#form1").attr('placeholder', '')
+        let form1 = $("#form1")
+        form1.attr('placeholder', '')
         document.getElementById('form1').value = ''
         method = this.attributes[1].value;
         if (methods_1.includes(this.attributes[1].value)) {
-            $("#form1").prop('disabled', true);
-            $("#form1").css('background', 'gray');
+            form1.prop('disabled', true);
+            form1.css('background', 'gray');
         } else {
-            $("#form1").prop('disabled', false);
-            $("#form1").css('background', '');
+            form1.prop('disabled', false);
+            form1.css('background', '');
             if (this.attributes[1].value === "Q12") {
-                $("#form1").attr('placeholder', 'product number')
+                form1.attr('placeholder', 'product number')
                 set_autocomplete('form1', 'form1_complete', products, start_at_letters = 1);
             } else if (this.attributes[1].value === "Q13") {
-                $("#form1").attr('placeholder', 'contract number')
+                form1.attr('placeholder', 'contract number')
                 set_autocomplete('form1', 'form1_complete', contracts, start_at_letters = 1);
             }
         }
