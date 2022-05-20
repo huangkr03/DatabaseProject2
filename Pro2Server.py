@@ -37,7 +37,6 @@ class Pool: # DB Pool
                 host=form.get('host'),
                 ping=0
             )
-            conn = self.pool.connection()
             self.connected = True
         except Exception:
             self.pool = None
