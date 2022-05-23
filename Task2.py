@@ -11,7 +11,7 @@ class PlaceOrder:
         self.__task2_create_function(conn)
         self.__create_table(conn)
         # conn.autocommit = True
-        with open('task/task2_test_data_publish.csv') as task2:
+        with open('task/task2_final.csv') as task2:
             reader = csv.reader(task2)
             reader.__next__()
             for line in reader:
@@ -22,9 +22,9 @@ class PlaceOrder:
                 except Exception as e:
                     conn.rollback()
                     # print(line)
-                    print(e)
+                    # print(e)
                     continue
-        with open('task/task2_test_data_publish.csv') as task2:
+        with open('task/task2_final.csv') as task2:
             reader = csv.reader(task2)
             reader.__next__()
             for line in reader:
@@ -41,7 +41,7 @@ class PlaceOrder:
                 except Exception as e:
                     conn.rollback()
                     # print(line)
-                    print(e)
+                    # print(e)
                     continue
         # conn.autocommit = False
         cur.close()

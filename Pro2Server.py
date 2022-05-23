@@ -10,12 +10,14 @@ from Task1 import StockIn
 from Task2 import PlaceOrder
 from Task3 import UpdateOrder
 from Task4 import DeleteOrder
+from Advance import Advance1
 
 host = ('127.0.0.1', 8765)
 
 methods = {}
 output = open('output.txt', 'w')
 user: str
+advance: Advance1
 
 
 class Pool: # DB Pool
@@ -27,7 +29,7 @@ class Pool: # DB Pool
         try:
             self.pool = PooledDB(
                 creator=pg,
-                mincached=5,
+                mincached=1,
                 maxcached=20,
                 blocking=True,
                 port=5432,
@@ -110,6 +112,44 @@ class Request(BaseHTTPRequestHandler):
             self.send_header("Content-type", "image/x-icon")
             self.end_headers()
             self.return_ico('client' + self.path)
+        if self.path.startswith('/advance'):
+            global advance
+            self.send_response(200)
+            self.end_headers()
+            path = self.path.split('/')
+            advance_k = path[2]
+            arg = path[3]
+            print(advance_k)
+            arg = arg.replace('_', ' ')
+            js = {}
+            if advance_k == '1':
+                result = advance.get_enterprise_order(arg)
+                if result:
+                    js.setdefault('enterprise', 'Netease')
+                    js.setdefault('country', result[0][2])
+                    js.setdefault('city', result[0][3])
+                    js.setdefault('industry', result[0][4])
+                    js.setdefault('orders', [])
+                    for i in result:
+                        a = {}
+                        a.setdefault('product', i[0])
+                        a.setdefault('quantity', i[1])
+                        a.setdefault('price', int(i[5]))
+                        a.setdefault('total_price', int(i[6]))
+                        js['orders'].append(a)
+            else:
+                result = advance.get_center_stock(arg)
+                if result:
+                    js.setdefault('orders', [])
+                    for i in result:
+                        a = {}
+                        a.setdefault('product', i[0])
+                        a.setdefault('quantity', i[0])
+                        a.setdefault('price', i[0])
+                        a.setdefault('total_price', i[0])
+                        js['orders'].append(a)
+            print(result)
+            self.wfile.write(json.dumps(js).encode())
         if '?' in self.path:
             conn = pool.get_conn()
             cur: cursor = conn.cursor()
@@ -420,7 +460,7 @@ def drop_tables(conn):
 
 
 def init_database():
-    global methods
+    global methods, advance
 
     select = SelectItem(pool)
     methods.setdefault('Q6', select.getAllStaffCount)
@@ -431,6 +471,8 @@ def init_database():
     methods.setdefault('Q11', select.getAvgStockByCenter)
     methods.setdefault('Q12', select.getProductByNumber)
     methods.setdefault('Q13', select.getContractInfo)
+
+    advance = Advance1(pool)
 
 
 class ThreadingHttpServer(ThreadingMixIn, HTTPServer):

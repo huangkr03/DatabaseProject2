@@ -6,7 +6,7 @@ class DeleteOrder:
         conn = self.__pool.get_conn()
         cur = conn.cursor()
         self.__task4_create_function(conn)
-        with open('task/task34_delete_test_data_publish.tsv') as task4:
+        with open('task/task4_final.tsv') as task4:
             task4.readline()
             lines = task4.readlines()
             for line in lines:  # contract0 salesman1 seq2

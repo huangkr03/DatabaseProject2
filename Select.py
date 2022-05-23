@@ -50,11 +50,16 @@ from a;''')
     def getFavoriteProductModel(self):
         conn = self.__pool.get_conn()
         cur = conn.cursor()
-        cur.execute('''with a as (select model, quantity, current_quantity, max(quantity - current_quantity) over () max
-           from stock)
-select model model_name, max as quantity
-from a
-where quantity - current_quantity = max;''')
+#         cur.execute('''with a as (select model, quantity, current_quantity, max(quantity - current_quantity) over () max
+#            from stock)
+# select model model_name, max as quantity
+# from a
+# where quantity - current_quantity = max;''')
+        cur.execute('''select model, sum(quantity - stock.current_quantity) qt
+from stock
+group by model
+order by qt desc
+limit 1;''')
         result = cur.fetchall()
         cur.close()
         conn.close()

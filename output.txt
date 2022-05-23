@@ -1,28 +1,19 @@
-Q12
-supply_center product_number product_model purchase_price quantity 
 Q6
 Director          8   
 Salesman          640 
 Contracts Manager 160 
 Supply Staff      192 
-Q7	84
-Q8	178
-Q9	53
+Q7	112
+Q8	529
+Q9	55
 Q10
-PrecisionAirConditionerG9 863 
+WirelessSecurity90 1762 
 Q11
-America                                      448.3 
-Asia                                         494.5 
-Eastern China                                594.2 
-Europe                                       493.4 
-Hong Kong, Macao and Taiwan regions of China 423.5 
-Northern China                               521.9 
-Southern China                               429.0 
-Southwestern China                           473.2 
-Q13
-number: CSE0000112
-manager: Bob Lewis
-enterprise: Bilibili
-supply_center: Eastern China
-product_model      salesman       quantity unit_price estimate_delivery_date lodgement_date 
-UpsPowerShredderT7 Lucinda Harris 1        270        2022-01-17             2022-01-17     
+America                                      303.4 
+Asia                                         226.4 
+Eastern China                                182.5 
+Europe                                       322.8 
+Hong Kong, Macao and Taiwan regions of China 267.4 
+Northern China                               224.6 
+Southern China                               234.2 
+Southwestern China                           313.6 

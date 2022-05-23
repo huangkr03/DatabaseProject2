@@ -14,6 +14,8 @@ from dbutils.pooled_db import PooledDB
 import psycopg2 as pg
 from psycopg2.extensions import *
 
+from Project2.Advance import Advance1
+
 
 class Pool:
     def __init__(self):
@@ -42,18 +44,26 @@ class Pool:
 if __name__ == '__main__':
     pool = Pool()
     con1 = pool.get_conn()
-    con2 = pool.get_conn()
-    con3 = pool.get_conn()
-    con4 = pool.get_conn()
-    con1 = pool.get_conn()
-    pool.status()
-    con1.close()
-    pool.status()
-    con2.close()
-    pool.status()
-    con3.close()
-    pool.status()
-    con4.close()
-    pool.status()
+    advance = Advance1(pool)
+    result = advance.get_enterprise_order('Netease')
+    for i in result:
+        for j in i:
+            print(j)
+    js = {}
+    if result:
+        js.setdefault('enterprise', 'Netease')
+        js.setdefault('country', result[0][2])
+        js.setdefault('city', result[0][3])
+        js.setdefault('industry', result[0][4])
+        js.setdefault('orders', [])
+        for i in result:
+            a = {}
+            a.setdefault('product', i[0])
+            a.setdefault('quantity', i[1])
+            a.setdefault('price', int(i[5]))
+            a.setdefault('total_price', int(i[6]))
+            js['orders'].append(a)
+    # pprint(j)
+    pprint(json.dumps(js))
 
     pool.pool.close()

@@ -6,7 +6,7 @@ class UpdateOrder:
         conn = self.__pool.get_conn()
         cur = conn.cursor()
         self.__task3_create_function(conn)
-        with open('task/task34_update_test_data_publish.tsv') as task3:
+        with open('task/task3_final.tsv') as task3:
             task3.readline()
             lines = task3.readlines()
             for line in lines:  # contract0 product_model1 salesman2 quantity3 estimate_delivery_date4 lodgement_date5

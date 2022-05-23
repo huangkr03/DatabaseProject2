@@ -11,7 +11,7 @@ class StockIn:
         self.__task1_create_function(conn)
         self.__create_table(conn)
         # conn.autocommit = True
-        with open('task/task1_in_stoke_test_data_publish.csv') as task1:
+        with open('task/task1_final.csv') as task1:
             reader = csv.reader(task1)
             reader.__next__()
             for line in reader:
