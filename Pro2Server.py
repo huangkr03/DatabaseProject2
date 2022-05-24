@@ -119,9 +119,9 @@ class Request(BaseHTTPRequestHandler):
             path = self.path.split('/')
             advance_k = path[2]
             arg = path[3]
-            print(advance_k)
             arg = arg.replace('_', ' ')
             js = {}
+            total = 0
             if advance_k == '1':
                 result = advance.get_enterprise_order(arg)
                 if result:
@@ -136,7 +136,9 @@ class Request(BaseHTTPRequestHandler):
                         a.setdefault('quantity', i[1])
                         a.setdefault('price', int(i[5]))
                         a.setdefault('total_price', int(i[6]))
+                        total += int(i[6])
                         js['orders'].append(a)
+                    js.setdefault('total', total)
             else:
                 result = advance.get_center_stock(arg)
                 if result:
@@ -144,10 +146,12 @@ class Request(BaseHTTPRequestHandler):
                     for i in result:
                         a = {}
                         a.setdefault('product', i[0])
-                        a.setdefault('quantity', i[0])
-                        a.setdefault('price', i[0])
-                        a.setdefault('total_price', i[0])
+                        a.setdefault('quantity', i[1])
+                        a.setdefault('price', int(i[2]))
+                        a.setdefault('total_price', int(i[3]))
+                        total += int(i[3])
                         js['orders'].append(a)
+                    js.setdefault('total', total)
             print(result)
             self.wfile.write(json.dumps(js).encode())
         if '?' in self.path:

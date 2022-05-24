@@ -35,7 +35,7 @@ declare
     center_name varchar;
 begin
     with a as (
-        select o.id, row_number() over (order by o.estimate_delivery_date, o.contract_num) row_num
+        select o.id, row_number() over (order by o.estimate_delivery_date, o.product_model) row_num
         from orders o
         where o.contract_num = contract_numbers
           and o.salesman_num = salesman_numbers

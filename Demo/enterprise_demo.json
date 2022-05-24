@@ -1,0 +1,111 @@
+{
+  "enterprise": "Netease",
+  "country": "China",
+  "city": "Guangzhou",
+  "industry": "Internet",
+  "orders": [
+    {
+      "product": "AirConditioner71",
+      "quantity": 499,
+      "price": 500,
+      "total_price": 249500
+    },
+    {
+      "product": "SolarWaterHeaters26",
+      "quantity": 276,
+      "price": 220,
+      "total_price": 60720
+    },
+    {
+      "product": "HardDiskExtractionBoxA4",
+      "quantity": 137,
+      "price": 880,
+      "total_price": 120560
+    },
+    {
+      "product": "GpsI3",
+      "quantity": 470,
+      "price": 590,
+      "total_price": 277300
+    },
+    {
+      "product": "LaptopDesk45",
+      "quantity": 413,
+      "price": 80,
+      "total_price": 33040
+    },
+    {
+      "product": "LabelPrinterA6",
+      "quantity": 191,
+      "price": 600,
+      "total_price": 114600
+    },
+    {
+      "product": "LaptopDesk45",
+      "quantity": 103,
+      "price": 80,
+      "total_price": 8240
+    },
+    {
+      "product": "Router92",
+      "quantity": 203,
+      "price": 420,
+      "total_price": 85260
+    },
+    {
+      "product": "OnlineTelephone15",
+      "quantity": 204,
+      "price": 180,
+      "total_price": 36720
+    },
+    {
+      "product": "HardDiskExtractionBoxA4",
+      "quantity": 17,
+      "price": 880,
+      "total_price": 14960
+    },
+    {
+      "product": "CashRegister62",
+      "quantity": 74,
+      "price": 390,
+      "total_price": 28860
+    },
+    {
+      "product": "ElectricHeaterE3",
+      "quantity": 20,
+      "price": 270,
+      "total_price": 5400
+    },
+    {
+      "product": "ElectricHeaterE3",
+      "quantity": 10,
+      "price": 270,
+      "total_price": 2700
+    },
+    {
+      "product": "TabletCase05",
+      "quantity": 136,
+      "price": 350,
+      "total_price": 47600
+    },
+    {
+      "product": "ImageAlarm30",
+      "quantity": 296,
+      "price": 150,
+      "total_price": 44400
+    },
+    {
+      "product": "HardDiskExtractionBoxA4",
+      "quantity": 9,
+      "price": 880,
+      "total_price": 7920
+    },
+    {
+      "product": "SurveillanceCaptureCard79",
+      "quantity": 406,
+      "price": 550,
+      "total_price": 223300
+    }
+  ],
+  "total": 1361080
+}
