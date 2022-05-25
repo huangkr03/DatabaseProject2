@@ -1,0 +1,199 @@
+:root {
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    /*font-family: 'Open Sans', sans-serif;*/
+    margin: 0;
+    /*background: #434A54;*/
+    /*text-rendering: optimizeSpeed;*/
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    child-align: middle;
+    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+}
+
+#database {
+    color: #fff;
+    text-shadow: 0 0 20px;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.main {
+    padding: 20px;
+    margin: 10px auto auto;
+    border: 1px solid white;
+    border-radius: 30px;
+    width: 1400px;
+    height: 700px;
+    box-shadow: 0 25px 45px;
+}
+
+.left {
+    width: 240px;
+    height: 580px;
+    margin: 20px;
+    display: inline-block;
+    border: 1px solid white;
+    float: left;
+    border-radius: 15px;
+    box-shadow: 0 25px 45px;
+    background-image: linear-gradient(to bottom, #051937, #003b5f, #005e67, #007e49, #699605);
+}
+
+.right {
+    text-align: center;
+    width: 260px;
+    height: 580px;
+    margin: 20px;
+    display: inline-block;
+    border: 1px solid white;
+    float: right;
+    border-radius: 15px;
+    box-shadow: 0 25px 45px;
+    background-image: linear-gradient(to bottom, #051937, #003b5f, #005e67, #007e49, #699605);
+}
+
+.middle {
+    /*display: inline-block;*/
+    white-space: nowrap;
+    text-align: center;
+    width: 755px;
+    float: left;
+    margin: 10px;
+    padding: 10px;
+    height: 580px;
+    border-radius: 20px;
+    border: 1px solid white;
+    box-shadow: 0 25px 45px;
+}
+
+/*input {*/
+/*!important;*/
+/*    margin-bottom: 10px;*/
+/*    margin-left: auto;*/
+/*    margin-right: auto;*/
+/*}*/
+
+#text {
+    width: 100%;
+    height: 100%;
+    padding-left: 5px;
+    overflow: scroll;
+    resize: none;
+    border-radius: 20px;
+    outline: none;
+    font-size: 16px;
+    font-family: "Consolas", monospace;
+    font-weight: 500;
+    color: white;
+    background-image: linear-gradient(to bottom, #051937, #003b5f, #005e67, #007e49, #699605);
+}
+
+.title {
+    font-size: 30px;
+    font-family: 'Tempus Sans ITC', monospace;
+    color: white;
+    margin-top: 20px;
+}
+
+#person {
+    width: 100%;
+    height: 71%;
+    padding-left: 10px;
+    border: none;
+    background: transparent;
+    color: white;
+    border-radius: 20px;
+    resize: none;
+    outline: none;
+    /*font-size: 16px;*/
+    font-size: 19px;
+    font-family: 'Tempus Sans ITC', monospace;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+}
+
+::-webkit-scrollbar-track-piece {
+    background-color: transparent;
+    -webkit-border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+    height: 12px;
+    background-color: #BDBDBD;
+    -webkit-border-radius: 6px;
+}
+
+
+#text::-webkit-scrollbar-thumb:vertical {
+    background-image: linear-gradient(to bottom, #051937, #003b5f, #005e67);
+}
+#text::-webkit-scrollbar-thumb:horizontal {
+    background-image: linear-gradient(to right, #051937, #003b5f, #005e67);
+}
+
+::-webkit-scrollbar-button {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+    width: 12px;
+    background-color: #BDBDBD;
+    -webkit-border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:vertical:hover, ::-webkit-scrollbar-thumb:horizontal:hover {
+    background-color: #808080;
+}
+
+
+.button {
+    border-radius: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Tempus Sans ITC', monospace;
+    transition-property: box-shadow, background-color, transform;
+    transition-duration: 0.5s;
+    background-color: #228f6c;
+    box-shadow: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75px;
+    width: 220px;
+    margin: 30px auto;
+    color: black;
+}
+
+#execute {
+    margin-top: 5px;
+    font-size: 18px;
+}
+
+.button:hover {
+    background-color: #3fc6f4;
+    box-shadow: 0 0 7px 7px white;
+}
+
+.button:active {
+    background-color: white;
+    transform: scale(0.9);
+    box-shadow: 0 0 30px 30px cyan;
+}

@@ -19,3 +19,6 @@ if __name__ == '__main__':
     a = [2, 3, 4]
     tuple(a)
     print('%d %d %d' % tuple(a))
+
+    a = {1: 3}
+    print(a.get(2))

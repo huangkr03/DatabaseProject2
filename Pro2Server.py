@@ -12,7 +12,7 @@ from Task3 import UpdateOrder
 from Task4 import DeleteOrder
 from Advance import Advance1
 
-host = ('127.0.0.1', 8765)
+host = ('127.0.0.1', 8764)
 
 methods = {}
 output = open('output.txt', 'w')
@@ -20,7 +20,7 @@ user: str
 advance: Advance1
 
 
-class Pool: # DB Pool
+class Pool:  # DB Pool
     def __init__(self):
         self.pool = None
         self.connected = False
@@ -157,7 +157,7 @@ class Request(BaseHTTPRequestHandler):
         if '?' in self.path:
             conn = pool.get_conn()
             cur: cursor = conn.cursor()
-            command = self.path.split('?')[1]
+            command = self.path.split('?')[1].split('=')[1]
             if command == 'contract_num':
                 print('get contract_num')
                 cur.execute('select contract_num from contracts;')
@@ -203,7 +203,7 @@ class Request(BaseHTTPRequestHandler):
             if not pool.connected:
                 connect_db(form)
             if not pool.connected:
-                self.send_response(200)
+                self.send_response(201)
                 self.end_headers()
                 self.return_page('client/error.html')
             else:
@@ -214,7 +214,7 @@ class Request(BaseHTTPRequestHandler):
         else:
             conn = pool.get_conn()
             cur: cursor = conn.cursor()
-            command = self.path.split('?')[1]
+            command = self.path.split('?')[1].split('=')[1]
             if command.startswith('Q'):
                 global output
                 output_str = ''
