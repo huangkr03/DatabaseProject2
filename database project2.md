@@ -59,9 +59,9 @@ CREATE INDEX sales_num_index ON stock ((stock.quantity-stock.current_quantity));
 explain select * from  stock where stock.quantity-stock.current_quantity between 0 and 10;
 ```
 
-<img src="C:\Users\Lenovo\Desktop\Project2\picture\without_index.png" alt="without_index" style="zoom:50%;" />
+<img src="picture\without_index.png" alt="without_index" style="zoom:50%;" />
 
-<img src="C:\Users\Lenovo\Desktop\Project2\picture\expression_index.png" alt="expression_index" style="zoom:50%;" />
+<img src="picture\expression_index.png" alt="expression_index" style="zoom:50%;" />
 
 [^添加索引前后搜索效率]: 10.72-->7.97
 
@@ -75,7 +75,67 @@ explain select * from  stock where stock.quantity-stock.current_quantity between
 - 代替超级用户管理数据库的database_manager：具有创建数据库和创建用户的权限
 - 管理xxx供应中心的管理员xxx_center_manager：具有该供应中心的产品库存视图以及该供应中心员工信息视图的所有权限
 
-<img src="C:\Users\Lenovo\Desktop\Project2\picture\role.png" alt="role" style="zoom:67%;" />
+<img src="picture\role.png" alt="role" style="zoom:67%;" />
+
+
+
+### 前端
+
+此次前端我们主要实现两个页面，一个是登录页面，用于用户验证，一个是数据库管理页面
+
+以下是两个页面的截图
+
+login界面：
+
+<img src="E:/CS_Project/PythonProject/Database/Project2/picture/login.png" alt="login" style="zoom: 50%;" />
+
+database界面：
+
+<img src="E:\CS_Project\PythonProject\Database\Project2\picture\database.png" alt="database" style="zoom: 50%;" />
+
+在登录验证时，用户需要输入四项信息，分别是：用户名，密码，数据库以及主机地址，在用户输入正确的信息之后，后端将会连上数据库并初始化数据库连接池，以便之后使用
+
+前端支持的操作有：
+
+1. 一键导入操作
+2. 一键导出操作（将查询结果保存为txt文件）
+3. Q6-Q13的查询操作
+4. Q12-Q13的自动补全（输入一部分字符可以自动补全其余字符）
+   5. 面板清空操作（只是清空前端显示，不会清空后端的查询结果）
+5. 手动输入SQL语句，并将执行结果打印到工作台中（如果是select语句的话）
+
+### 数据库连接池
+
+本次数据库我们所使用的的连接池是python的DBUtils包下的PooledDB
+
+```python
+pool = PooledDB(
+    creator=pg,
+    mincached=1,
+    maxcached=20,
+    blocking=True,
+    port=5432,
+    database='project_2',
+    user='postgres',
+    password='123456',
+    host='localhost',
+    ping=0
+)
+```
+
+初始连接设置为1，最大连接设置为20，blocking设置为True
+
+### 后端
+
+后端支持http连接和RESTful服务，http连接用于前后端交互，RESTful服务用于一些复杂查询，然后后端利用psycopg2来连接数据库
+
+运行成功的画面是这样：
+
+<img src="E:\CS_Project\PythonProject\Database\Project2\picture\server.png" alt="server"  />
+
+遇到请求时处理结果如下：
+
+<img src="E:\CS_Project\PythonProject\Database\Project2\picture\server2.png" alt="server2"  />
 
 
 
@@ -89,8 +149,74 @@ explain select * from  stock where stock.quantity-stock.current_quantity between
 
 在各个节点上，开放5432端口。
 
-<img src="C:\Users\Lenovo\Desktop\Project2\picture\citus.png" alt="citus" style="zoom: 50%;" />
+<img src="picture\citus.png" alt="citus" style="zoom: 50%;" />
 
-<img src="C:\Users\Lenovo\Desktop\Project2\picture\hrk_citus.png" alt="hrk_citus" style="zoom: 60%;" />
+<img src="picture\hrk_citus.png" alt="hrk_citus" style="zoom: 60%;" />
 
 由于wsl的IP是本机内IP，本机的IP又属于校园网内网IP，不是静态IP，因此要考虑部署NAT网络地址转换和端口映射。使得两台主机（服务器）能够互相通信，从而实现分布式。具体实现可以在docker中进行配置，此处我们了解概念后没有具体实现。
+
+#### 2. 手动实现简单分布式
+
+由于上面的那一种方式需要公网IP，或者云端服务器，并且由于我们使用的wsl所在网段是我们电脑的子网，不在校园网的子网下，因此并不能绑定校园网的IP，并且我们的校园网服务器给我们分配的ip是随时间动态改变的，切换的时候会很不方便。因此我们最终放弃了上面的那种分布式设计，我们准备手动实现我们自己的分布式。
+
+我们的想法是另开一个proxy.py作为代理服务器，里面维护一个服务器列表，当有查询结果的时候，从服务器列表中选择一个服务器来进行查询，并返回查询结果，当需要做出改变的时候（如update，delete等），所有的服务器都需要改变。这样做的好处就是减少高并发带来的服务器压力，并且避免单个服务器宕机引起查询失败。代理服务器绑定的IP就是校园网IP，这样，只要设备和代理服务器处于同一个子网下（也就是校园网），就都可以拿来当服务器。
+
+### 压力测试：
+
+压力测试这部分我们使用的是Apache下的Jmeter软件来进行压力测试。软件是基于java编写的。
+
+我们最后选择测试的线程数是：
+
+1server（无分布式）：400线程、600线程、800线程、1000线程
+
+2server：1000线程、1200线程、1400线程、1600线程、1800线程
+
+#### 1server时结果如下：
+
+400线程：
+
+<img src="picture\400_1server.png" alt="400_1server" style="zoom:80%;" />
+
+600线程：
+
+<img src="picture\600_1server.png" alt="600_1server" style="zoom: 80%;" />
+
+800线程：
+
+<img src="picture\800_1server.png" alt="800_1server" style="zoom:80%;" />
+
+1000线程：
+
+<img src="picture\1000_1server.png" alt="1000_1server" style="zoom:80%;" />
+
+可以看出，从600线程开始，服务器的处理能力就开始下降了，开始出现丢包的情况，到1000线程时，服务器已经非常卡顿，最终有34%的异常
+
+#### 2server时结果如下：
+
+1000线程：
+
+<img src="picture\1000_2server.png" alt="1000_2server" style="zoom:80%;" />
+
+1200线程：
+
+<img src="picture\1200_2server.png" alt="1200_2server" style="zoom:80%;" />
+
+1400线程：
+
+<img src="picture\1400_2server.png" alt="1400_2server" style="zoom:80%;" />
+
+1600线程：
+
+<img src="picture\1600_2server.png" alt="1600_2server" style="zoom:80%;" />
+
+1800线程：
+
+<img src="picture\1800_2server.png" alt="1800_2server" style="zoom:80%;" />
+
+可以看出，使用分布式之后，仅仅只是两个server，已经可以轻松处理1000线程不报错了。
+
+在1200线程的时候才开始出现丢包的情况，并且在1800线程的时候也仅有15%左右的异常，并且没有明显卡顿。可以看出分布式对于查询的优化效率是成倍的增长的
+
+以下是根据异常率画的图：
+
+<img src="picture\压力测试.png" alt="压力测试" style="zoom:80%;" />
