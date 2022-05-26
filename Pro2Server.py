@@ -12,8 +12,8 @@ from Task3 import UpdateOrder
 from Task4 import DeleteOrder
 from Advance import Advance1
 
-# host = ('127.0.0.1', 8764)
-host = ('10.26.90.236', 8764)
+host = ('127.0.0.1', 8765)
+# host = ('10.26.90.236', 8764)
 
 methods = {}
 output = open('output.txt', 'w')
@@ -126,7 +126,7 @@ class Request(BaseHTTPRequestHandler):
             if advance_k == '1':
                 result = advance.get_enterprise_order(arg)
                 if result:
-                    js.setdefault('enterprise', 'Netease')
+                    js.setdefault('enterprise', arg)
                     js.setdefault('country', result[0][2])
                     js.setdefault('city', result[0][3])
                     js.setdefault('industry', result[0][4])
@@ -143,6 +143,7 @@ class Request(BaseHTTPRequestHandler):
             else:
                 result = advance.get_center_stock(arg)
                 if result:
+                    js.setdefault('center', arg)
                     js.setdefault('orders', [])
                     for i in result:
                         a = {}
