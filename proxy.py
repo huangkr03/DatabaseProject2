@@ -52,6 +52,7 @@ def return_one(command='', type='GET', data=None):
     server_index += 1
     if server_index == len(server_list):
         server_index = 0
+    print('Request for', server_list[server_index])
     if type == 'GET':
         return Response(requests.get('http://' + server_list[server_index] + '/?' + command))
     else:
@@ -76,7 +77,8 @@ def return_both(command: str, type: str):
 
 
 if __name__ == '__main__':
+    # server_list.append('10.26.90.236:8764')
     server_list.append('10.26.140.224:8764')
     # server_list.append('')
-    # server_list.append('10.26.90.236:8764')
-    app.run(host='10.26.140.224', port=8765)
+    app.run(host='10.26.90.236', port=8765)
+    # app.run(port=8765)

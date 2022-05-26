@@ -13,7 +13,7 @@ from Task4 import DeleteOrder
 from Advance import Advance1
 
 # host = ('127.0.0.1', 8764)
-host = ('10.26.140.224', 8764)
+host = ('10.26.90.236', 8764)
 
 methods = {}
 output = open('output.txt', 'w')
@@ -30,7 +30,7 @@ class Pool:  # DB Pool
         try:
             self.pool = PooledDB(
                 creator=pg,
-                mincached=1,
+                mincached=20,
                 maxcached=20,
                 blocking=True,
                 port=5432,
@@ -492,3 +492,4 @@ if __name__ == '__main__':
         myServer.serve_forever()
     except Exception:
         myServer.server_close()
+        pool.close()

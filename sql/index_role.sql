@@ -1,10 +1,11 @@
 --Index
-CREATE INDEX product_index ON project_2.public.orders USING btree(product_model);
-CREATE INDEX salesman_index ON project_2.public.orders using btree(salesman_num);
-CREATE INDEX manager_index ON project_2.public.orders using btree(contract_manager);
-drop index product_index;
-drop index salesman_index;
-explain select * from project_2.public.orders where orders.salesman_num like '11110405';
+CREATE INDEX IF NOT EXISTS product_index ON project_2.public.orders USING btree(product_model);
+CREATE INDEX IF NOT EXISTS salesman_index ON project_2.public.orders using btree(salesman_num);
+CREATE INDEX IF NOT EXISTS manager_index ON project_2.public.orders using btree(contract_manager);
+drop index if exists product_index;
+drop index if exists salesman_index;
+drop index if exists manager_index;
+explain select salesman_num from project_2.public.orders where orders.salesman_num like '11110405';
 
 CREATE INDEX sales_index ON staff using btree(number);
 drop index sales_index;
