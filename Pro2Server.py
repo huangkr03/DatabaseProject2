@@ -12,7 +12,8 @@ from Task3 import UpdateOrder
 from Task4 import DeleteOrder
 from Advance import Advance1
 
-host = ('127.0.0.1', 8764)
+# host = ('127.0.0.1', 8764)
+host = ('10.26.140.224', 8764)
 
 methods = {}
 output = open('output.txt', 'w')

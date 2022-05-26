@@ -76,6 +76,7 @@ def return_both(command: str, type: str):
 
 
 if __name__ == '__main__':
-    server_list.append('127.0.0.1:8764')
+    server_list.append('10.26.140.224:8764')
     # server_list.append('')
-    app.run(port=8765)
+    # server_list.append('10.26.90.236:8764')
+    app.run(host='10.26.140.224', port=8765)

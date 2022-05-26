@@ -3,44 +3,2203 @@ Director          8
 Salesman          640 
 Contracts Manager 160 
 Supply Staff      192 
-Q12
-supply_center  product_number product_model     purchase_price quantity 
-Southern China M421X86        Multifunctional31 652            124      
-Southern China M421X86        Multifunctional31 652            884      
-America        M421X86        Multifunctional31 519            124      
-America        M421X86        Multifunctional31 519            884      
-Q13
-number: CSE0000102
-manager: Marshall Hall
-enterprise: Netease
-supply_center: Southern China
-product_model           salesman       quantity unit_price estimate_delivery_date lodgement_date 
-AirConditioner71        Bobby Roberts  499      500        2022-01-05             2022-01-07     
-HardDiskExtractionBoxA4 Zhu Honglin    137      880        2022-01-06             2022-01-07     
-GpsI3                   Qian  biqin    470      590        2022-01-05             2022-01-05     
-SolarWaterHeaters26     Qi Yinxiang    276      220        2022-01-08             2022-01-08     
-LaptopDesk45            Shen Mingliang 413      80         2022-01-05             2022-01-05     
-Q13
-number: CSE0000106
-manager: Brian Brown
-enterprise: Ping An Insurance (Group) Company Of China
-supply_center: Southern China
-product_model                    salesman      quantity unit_price estimate_delivery_date lodgement_date 
-SoundCard93                      Trudie Lewis  374      10         2022-01-11             2022-01-10     
-Server40                         Sun Yankun    304      220        2022-01-12             2022-01-12     
-ToiletSeatM4                     Liu Hanshuang 350      110        2022-01-10             2022-01-11     
-HeatSink24                       Tao Xixia     140      400        2022-01-10             2022-01-12     
-CasetteLibraryI1                 Qi Yinxiang   390      460        2022-01-11             2022-01-11     
-BarcodeAndCardReadingEquipment34 Chu Guqiu     491      790        2022-01-10             2022-01-12     
-Q12
-supply_center                                product_number product_model    purchase_price quantity 
-Southern China                               A35J746        AirConditioner71 564            125      
-Southern China                               A35J746        AirConditioner71 564            109      
-Southern China                               A35J746        AirConditioner71 564            250      
-Hong Kong, Macao and Taiwan regions of China A35J746        AirConditioner71 540            125      
-Hong Kong, Macao and Taiwan regions of China A35J746        AirConditioner71 540            109      
-Hong Kong, Macao and Taiwan regions of China A35J746        AirConditioner71 540            250      
-America                                      A35J746        AirConditioner27 681            218      
-Eastern China                                A35J746        AirConditioner71 784            125      
-Eastern China                                A35J746        AirConditioner71 784            109      
-Eastern China                                A35J746        AirConditioner71 784            250      
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Salesman          640 
+Contracts Manager 160 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
+Q6
+Director          8   
+Contracts Manager 160 
+Salesman          640 
+Supply Staff      192 
