@@ -65,7 +65,13 @@ explain select * from  stock where stock.quantity-stock.current_quantity between
 
 [^添加索引前后搜索效率]: 10.72-->7.97
 
+<img src="picture\索引2.png" alt="索引2" style="zoom: 55%;" />
 
+<img src="picture\索引1.png" alt="索引1" style="zoom: 50%;" />
+
+
+
+[^添加索引前后搜索效率]: 15.61 --> 8.02
 
 ### Role：
 
