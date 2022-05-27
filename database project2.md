@@ -89,7 +89,9 @@ explain select * from  stock where stock.quantity-stock.current_quantity between
 
 <img src="picture\role.png" alt="role" style="zoom:67%;" />
 
+America_center_manager 操作示例：
 
+<img src="picture\image-20220527111226059(1).png" alt="image-20220527111226059(1)" style="zoom: 50%;" />
 
 ### 4.前端
 
@@ -136,6 +138,12 @@ pool = PooledDB(
 ```
 
 初始连接设置为1，最大连接设置为20，blocking设置为True
+
+对于单个服务器，我们也实现了缓存功能：即如果客户端反复向服务器请求同一个内容，就从缓存中读取，而不是向数据请求建立连接。缓存极大的增强了数据库处理高并发单一查询的能力。
+
+压力测试（2000线程）：
+
+<img src="C:\Users\Lenovo\Desktop\Project2\picture\CHCHE.png" alt="CHCHE" style="zoom:50%;" />
 
 ### 6.后端
 
