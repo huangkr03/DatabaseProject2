@@ -19,6 +19,7 @@ methods = {}
 output = open('output.txt', 'w')
 user: str
 advance: Advance1
+commands = {}
 
 
 class Pool:  # DB Pool
@@ -119,43 +120,48 @@ class Request(BaseHTTPRequestHandler):
             self.end_headers()
             path = self.path.split('/')
             advance_k = path[2]
-            arg = path[3]
-            arg = arg.replace('_', ' ')
-            js = {}
+            args = path[3]
+            args = args.replace('_', ' ')
+            args = args.split('&')
+            res = []
+            print(args)
             total = 0
-            if advance_k == '1':
-                result = advance.get_enterprise_order(arg)
-                if result:
-                    js.setdefault('enterprise', arg)
-                    js.setdefault('country', result[0][2])
-                    js.setdefault('city', result[0][3])
-                    js.setdefault('industry', result[0][4])
-                    js.setdefault('orders', [])
-                    for i in result:
-                        a = {}
-                        a.setdefault('product', i[0])
-                        a.setdefault('quantity', i[1])
-                        a.setdefault('price', int(i[5]))
-                        a.setdefault('total_price', int(i[6]))
-                        total += int(i[6])
-                        js['orders'].append(a)
-                    js.setdefault('total', total)
-            else:
-                result = advance.get_center_stock(arg)
-                if result:
-                    js.setdefault('center', arg)
-                    js.setdefault('orders', [])
-                    for i in result:
-                        a = {}
-                        a.setdefault('product', i[0])
-                        a.setdefault('quantity', i[1])
-                        a.setdefault('price', int(i[2]))
-                        a.setdefault('total_price', int(i[3]))
-                        total += int(i[3])
-                        js['orders'].append(a)
-                    js.setdefault('total', total)
-            print(result)
-            self.wfile.write(json.dumps(js).encode())
+            for arg in args:
+                js = {}
+                if advance_k == '1':
+                    result = advance.get_enterprise_order(arg)
+                    if result:
+                        js.setdefault('enterprise', arg)
+                        js.setdefault('country', result[0][2])
+                        js.setdefault('city', result[0][3])
+                        js.setdefault('industry', result[0][4])
+                        js.setdefault('orders', [])
+                        for i in result:
+                            a = {}
+                            a.setdefault('product', i[0])
+                            a.setdefault('quantity', i[1])
+                            a.setdefault('price', int(i[5]))
+                            a.setdefault('total_price', int(i[6]))
+                            total += int(i[6])
+                            js['orders'].append(a)
+                        js.setdefault('total', total)
+                else:
+                    result = advance.get_center_stock(arg)
+                    if result:
+                        js.setdefault('center', arg)
+                        js.setdefault('orders', [])
+                        for i in result:
+                            a = {}
+                            a.setdefault('product', i[0])
+                            a.setdefault('quantity', i[1])
+                            a.setdefault('price', int(i[2]))
+                            a.setdefault('total_price', int(i[3]))
+                            total += int(i[3])
+                            js['orders'].append(a)
+                        js.setdefault('total', total)
+                print(result)
+                res.append(js)
+            self.wfile.write(json.dumps(res).encode())
         if '?' in self.path:
             conn = pool.get_conn()
             cur: cursor = conn.cursor()
@@ -214,8 +220,8 @@ class Request(BaseHTTPRequestHandler):
                 self.end_headers()
                 self.return_page('client/database.html')
         else:
-            conn = pool.get_conn()
-            cur: cursor = conn.cursor()
+            # conn = pool.get_conn()
+            # cur: cursor = conn.cursor()
             command = self.path.split('?')[1].split('=')[1]
             if command.startswith('Q'):
                 global output
@@ -248,23 +254,29 @@ class Request(BaseHTTPRequestHandler):
                         output_str += (out % tuple(i))
                         output_str += '\n'
                 else:
-                    result = methods.get(command)()
-                    if command in ['Q7', 'Q8', 'Q9']:
-                        output_str += (command + '\t')
-                        output_str += str(result[0][0]) + '\n'
+                    if command in commands.keys():
+                        output_str = commands.get(command)
                     else:
-                        out = get_format(result)
-                        output_str += (command + '\n')
-                        for i in result:
-                            i = [str(k) for k in i]
-                            output_str += (out % tuple(i))
-                            output_str += '\n'
-                print(output_str)
+                        result = methods.get(command)()
+                        if command in ['Q7', 'Q8', 'Q9']:
+                            output_str += (command + '\t')
+                            output_str += str(result[0][0]) + '\n'
+                        else:
+                            out = get_format(result)
+                            output_str += (command + '\n')
+                            for i in result:
+                                i = [str(k) for k in i]
+                                output_str += (out % tuple(i))
+                                output_str += '\n'
+                        commands.setdefault(command, output_str)
+                # print(output_str)
                 output.write(output_str)
                 self.send_response(200)
                 self.end_headers()
                 self.wfile.write(output_str.encode())
             elif command == 'sql':
+                conn = pool.get_conn()
+                cur: cursor = conn.cursor()
                 sql = self.rfile.read(int(self.headers['content-length']))
                 try:
                     cur.execute(sql)
@@ -279,7 +291,11 @@ class Request(BaseHTTPRequestHandler):
                     self.send_header("Content-type", "text/plain")
                     self.end_headers()
                     self.wfile.write(response.encode())
+                cur.close()
+                conn.close()
             elif command == 'select':
+                conn = pool.get_conn()
+                cur: cursor = conn.cursor()
                 sql = self.rfile.read(int(self.headers['content-length']))
                 try:
                     cur.execute(sql)
@@ -308,8 +324,8 @@ class Request(BaseHTTPRequestHandler):
                     self.send_header("Content-type", "text/plain")
                     self.end_headers()
                     self.wfile.write(response.encode())
-            cur.close()
-            conn.close()
+                cur.close()
+                conn.close()
 
 
 def get_format(result: list):

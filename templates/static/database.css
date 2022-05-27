@@ -32,13 +32,15 @@ html {
     margin: 10px auto auto;
     border: 1px solid white;
     border-radius: 30px;
-    width: 1400px;
+    /*width: 1400px;*/
+    width: 95%;
     height: 700px;
     box-shadow: 0 25px 45px;
 }
 
 .left {
-    width: 240px;
+    /*width: 240px;*/
+    width: 18%;
     height: 580px;
     margin: 20px;
     display: inline-block;
@@ -51,7 +53,8 @@ html {
 
 .right {
     text-align: center;
-    width: 260px;
+    /*width: 260px;*/
+    width: 20%;
     height: 580px;
     margin: 20px;
     display: inline-block;
@@ -66,7 +69,8 @@ html {
     /*display: inline-block;*/
     white-space: nowrap;
     text-align: center;
-    width: 755px;
+    /*width: 755px;*/
+    width: 54%;
     float: left;
     margin: 10px;
     padding: 10px;
