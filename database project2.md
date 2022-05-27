@@ -1,4 +1,12 @@
-### 设计系统功能性需求API：
+## DB project 2
+
+12010641 牛景萱
+
+12012427 黄柯睿
+
+### Bonus：
+
+### 1.设计系统功能性需求API：
 
 1. 基于实际需求，我们设计的function有：
 
@@ -28,9 +36,7 @@ create trigger product_delete_trigger
 - product_update_check()：保证更改product表中产品信息时，同步更新后信息到订单、库存等表。
 - product_delete_check()：保证删除某个product，同时删除库存等表中的产品信息。
 
-
-
-### Index：
+### 2.Index：
 
 ​	Ⅰ. 我们尝试对orders的product_model，contract_manager 和 salesman_num列建立索引，原因如下：
 
@@ -73,7 +79,7 @@ explain select * from  stock where stock.quantity-stock.current_quantity between
 
 [^添加索引前后搜索效率]: 15.61 --> 8.02
 
-### Role：
+### 3.Role：
 
 基于实际需求，除了superuser postgres以外，我们新建了以下三个Role
 
@@ -85,32 +91,32 @@ explain select * from  stock where stock.quantity-stock.current_quantity between
 
 
 
-### 前端
+### 4.前端
 
 此次前端我们主要实现两个页面，一个是登录页面，用于用户验证，一个是数据库管理页面
 
-以下是两个页面的截图
+以下是两个页面的截图：
 
 login界面：
 
-<img src="E:/CS_Project/PythonProject/Database/Project2/picture/login.png" alt="login" style="zoom: 50%;" />
+<img src="picture/login.png" alt="login" style="zoom: 80%;" />
 
 database界面：
 
-<img src="E:\CS_Project\PythonProject\Database\Project2\picture\database.png" alt="database" style="zoom: 50%;" />
+<img src="picture\database.png" alt="database" style="zoom: 50%;" />
 
 在登录验证时，用户需要输入四项信息，分别是：用户名，密码，数据库以及主机地址，在用户输入正确的信息之后，后端将会连上数据库并初始化数据库连接池，以便之后使用
 
-前端支持的操作有：
+**前端支持的操作有**：
 
 1. 一键导入操作
 2. 一键导出操作（将查询结果保存为txt文件）
 3. Q6-Q13的查询操作
 4. Q12-Q13的自动补全（输入一部分字符可以自动补全其余字符）
-   5. 面板清空操作（只是清空前端显示，不会清空后端的查询结果）
-5. 手动输入SQL语句，并将执行结果打印到工作台中（如果是select语句的话）
+5. 面板清空操作（只是清空前端显示，不会清空后端的查询结果）
+6. 手动输入SQL语句，并将执行结果打印到工作台中（如果是select语句的话）
 
-### 数据库连接池
+### 5.数据库连接池
 
 本次数据库我们所使用的的连接池是python的DBUtils包下的PooledDB
 
@@ -131,21 +137,19 @@ pool = PooledDB(
 
 初始连接设置为1，最大连接设置为20，blocking设置为True
 
-### 后端
+### 6.后端
 
 后端支持http连接和RESTful服务，http连接用于前后端交互，RESTful服务用于一些复杂查询，然后后端利用psycopg2来连接数据库
 
 运行成功的画面是这样：
 
-<img src="E:\CS_Project\PythonProject\Database\Project2\picture\server.png" alt="server"  />
+<img src="picture\server.png" alt="server" style="zoom:80%;" />
 
 遇到请求时处理结果如下：
 
-<img src="E:\CS_Project\PythonProject\Database\Project2\picture\server2.png" alt="server2"  />
+<img src="picture\server2.png" alt="server2"  />
 
-
-
-### 分布式设计：
+### 7.分布式设计：
 
 #### 1. 使用PostgreSQL数据库的分布式中间件Citus
 
@@ -225,4 +229,4 @@ pool = PooledDB(
 
 以下是根据异常率画的图：
 
-<img src="picture\压力测试.png" alt="压力测试" style="zoom:80%;" />
+<img src="picture\压力测试.png" alt="压力测试" style="zoom: 67%;" />
