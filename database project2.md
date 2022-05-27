@@ -11,7 +11,12 @@
 1. 基于实际需求，我们设计的function有：
 
 - get_enterprise_order ：检索查看某个客户公司的所有订单，便于分析客户需求，为客户提供更好的服务。
+
 - get_center_stock：检索查看某个供应中心产品的型号，库存，售价和销售总额，以便供应中心及时补货、调整售价。
+
+我们通过RESTful API 展示运行函数执行结果：
+
+<img src="picture\RESTful.png" alt="RESTful" style="zoom: 80%;" />
 
 2. 我们还设计了一个trigger：
 
