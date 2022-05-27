@@ -14,9 +14,11 @@
 
 - get_center_stock：检索查看某个供应中心产品的型号，库存，售价和销售总额，以便供应中心及时补货、调整售价。
 
-我们通过**RESTful** API 展示运行函数执行结果：
+我们通过**RESTful** API 展示运行函数执行结果，更改URL可以实现条件查询和多条件查询：
 
 <img src="picture\RESTful.png" alt="RESTful" style="zoom: 80%;" />
+
+<img src="picture\restful2.png" alt="restful2" style="zoom:80%;" />
 
 2. 我们还设计了一个trigger：
 
